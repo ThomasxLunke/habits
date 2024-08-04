@@ -1,9 +1,10 @@
+import HabitsCards from '@/components/HabitsCards'
+import { getCurrentUser } from '@/utils/users'
 import React from 'react'
 
-export default function page() {
+export default async function page() {
+  const user = await getCurrentUser()
   return (
-    <div>
-      Hello im the dashboard
-    </div>
+    <HabitsCards habits={user.habits} />
   )
 }

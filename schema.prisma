@@ -12,6 +12,29 @@ model User {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   email     String   @unique
-  name      String?
+  name      String
   password  String
+  habits Habit[]
+}
+
+model Habit {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  name      String
+  typeId    String
+  type      HabitType @relation(fields: [typeId], references: [id])
+  rythmId   String
+  rythm     HabitRythm @relation(fields: [rythmId], references: [id])
+  userId Int
+  user User @relation(fields:[userId], references: [id])
+}
+
+model HabitType {
+  id     String @id
+  habits Habit[]
+}
+
+model HabitRythm {
+  id     String @id
+  habits Habit[]
 }

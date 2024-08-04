@@ -22,6 +22,9 @@ export const getUserFromToken = async (token: {
     where: {
       id: payload.id
     },
+    include: {
+      habits: true
+    }
   })
 
   return user
