@@ -8,6 +8,7 @@ type HabitsCardsProps = {
 }
 
 const HabitsCards = ({ habits }: HabitsCardsProps) => {
+  console.log(habits)
   return (
     <div>
       {
